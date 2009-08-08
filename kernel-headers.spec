@@ -3,10 +3,9 @@
 %define ever 0.rc5.2mnb
 
 Summary:	Linux kernel header files for userspace
-Name:   	kernel-headers
-Epoch:  	1
+Name:   	linux-userspace-headers
 Version:	%{kver}
-Release:	%manbo_mkrel 0.rc5.1
+Release:	%manbo_mkrel 0.rc5.2
 License:	GPL
 Group:  	System/Kernel and hardware
 URL:    	http://www.kernel.org/
@@ -22,12 +21,15 @@ Source2:	create_asm_headers.sh
 # headers tarball, patch it to include the missing headers
 Patch0:		kernel-headers-kvm-a.out-missing-headers.patch
 Conflicts:	glibc-devel <= 6:2.7-2mdv2008.1
+Provides:	kernel-headers = 1:%{version}-%{release}
+Obsoletes:	kernel-headers < 1:2.6.31-0.rc5.2
 BuildRoot:	%{_tmppath}/%{name}-%{version}
 
 %description
-Kernel-headers includes the C header files from the Linux kernel. The
-header files define structures and constants that are needed for
-building most standard programs.
+C header files from the Linux kernel. The header files define structures
+and constants that are needed for building most standard programs.
+
+This package is not suitable for building kernel modules.
 
 %prep
 %setup -q -n %{name}-%{kver}.%{ever}
