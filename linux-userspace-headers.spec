@@ -32,7 +32,7 @@ and constants that are needed for building most standard programs.
 This package is not suitable for building kernel modules.
 
 %prep
-%setup -q -n %{name}-%{kver}.%{ever}
+%setup -q -n kernel-headers-%{kver}.%{ever}
 %patch0 -p1
 %{expand:%(%__cat %{_sourcedir}/make_versionh.sh 2>/dev/null)}
 TARGET=%_target_cpu
