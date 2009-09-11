@@ -1,11 +1,11 @@
 # kernel-headers are generated from mandriva kernel version %{kver}.%{ever}
 %define kver 2.6.31
-%define ever 0.rc5.2mnb
+%define ever 1mnb
 
 Summary:	Linux kernel header files for userspace
 Name:   	linux-userspace-headers
 Version:	%{kver}
-Release:	%manbo_mkrel 0.rc5.2
+Release:	%manbo_mkrel 1
 License:	GPL
 Group:  	System/Kernel and hardware
 URL:    	http://www.kernel.org/
@@ -13,13 +13,13 @@ URL:    	http://www.kernel.org/
 # make INSTALL_HDR_PATH=<path> headers_install_all
 # find <path> -name ..install.cmd -exec rm -f {} \;
 # find <path> -name .install -exec rm -f {} \;
-Source0: 	kernel-headers-%{kver}.%{ever}.tar.lzma
+Source0: 	linux-userspace-headers-%{kver}.%{ever}.tar.lzma
 Source1:	make_versionh.sh
 Source2:	create_asm_headers.sh
 # make headers_install_all has a bug which linux/{a.out.h,kvm.h} headers are not
 # included. While kernel isn't patched or we change the way we create kernel
 # headers tarball, patch it to include the missing headers
-Patch0:		kernel-headers-kvm-a.out-missing-headers.patch
+Patch0:		linux-userspace-headers-kvm-a.out-missing-headers.patch
 Conflicts:	glibc-devel <= 6:2.7-2mdv2008.1
 Provides:	kernel-headers = 1:%{version}-%{release}
 Obsoletes:	kernel-headers < 1:2.6.31-0.rc5.2
@@ -32,7 +32,7 @@ and constants that are needed for building most standard programs.
 This package is not suitable for building kernel modules.
 
 %prep
-%setup -q -n kernel-headers-%{kver}.%{ever}
+%setup -q -n linux-userspace-headers-%{kver}.%{ever}
 %patch0 -p1
 %{expand:%(%__cat %{_sourcedir}/make_versionh.sh 2>/dev/null)}
 TARGET=%_target_cpu
