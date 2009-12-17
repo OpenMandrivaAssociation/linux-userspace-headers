@@ -1,11 +1,11 @@
 # kernel-headers are generated from mandriva kernel version %{kver}.%{ever}
-%define kver 2.6.31
-%define ever 2.0.rc1.1mnb
+%define kver 2.6.32
+%define ever 1.1mnb
 
 Summary:	Linux kernel header files for userspace
 Name:   	linux-userspace-headers
 Version:	%{kver}
-Release:	%manbo_mkrel 2
+Release:	%manbo_mkrel 1
 License:	GPL
 Group:  	System/Kernel and hardware
 URL:    	http://www.kernel.org/
@@ -13,7 +13,7 @@ URL:    	http://www.kernel.org/
 # make INSTALL_HDR_PATH=<path> headers_install_all
 # find <path> -name ..install.cmd -exec rm -f {} \;
 # find <path> -name .install -exec rm -f {} \;
-Source0: 	linux-userspace-headers-%{kver}.%{ever}.tar.lzma
+Source0: 	linux-userspace-headers-%{kver}.%{ever}.tar.xz
 Source1:	make_versionh.sh
 Source2:	create_asm_headers.sh
 # make headers_install_all has a bug which linux/{a.out.h,kvm.h} headers are not
