@@ -5,7 +5,7 @@
 Summary:	Linux kernel header files for userspace
 Name:   	linux-userspace-headers
 Version:	%{kver}
-Release:	%manbo_mkrel 0.rc7.1
+Release:	%manbo_mkrel 0.rc7.2
 License:	GPL
 Group:  	System/Kernel and hardware
 URL:    	http://www.kernel.org/
