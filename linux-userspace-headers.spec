@@ -1,5 +1,5 @@
 # kernel-headers are generated from mandriva kernel version %{kver}.%{ever}
-%define kver 2.6.33
+%define kver 2.6.35
 %define ever 1mnb
 
 Summary:	Linux kernel header files for userspace
@@ -16,9 +16,9 @@ URL:    	http://www.kernel.org/
 Source0: 	linux-userspace-headers-%{kver}.%{ever}.tar.xz
 Source1:	make_versionh.sh
 Source2:	create_asm_headers.sh
-# make headers_install_all has a bug which linux/{a.out.h,kvm.h} headers are not
-# included. While kernel isn't patched or we change the way we create kernel
-# headers tarball, patch it to include the missing headers
+# make headers_install_all has a bug which linux/{a.out.h,kvm.h,kvm_para.h}
+# headers are not included. While kernel isn't patched or we change the way we
+# create kernel headers tarball, patch it to include the missing headers
 Patch0:		linux-userspace-headers-kvm-a.out-missing-headers.patch
 Conflicts:	glibc-devel <= 6:2.7-2mdv2008.1
 Provides:	kernel-headers = 1:%{version}-%{release}
@@ -49,9 +49,6 @@ for hdr in drm.h drm_mode.h drm_sarea.h i915_drm.h mga_drm.h nouveau_drm.h \
 do
 	rm -f %{buildroot}%{_includedir}/drm/$hdr
 done
-
-# don't ship scsi.h while glibc provides it
-rm -f %{buildroot}%{_includedir}/scsi/scsi.h
 
 %clean
 rm -rf %{buildroot}
