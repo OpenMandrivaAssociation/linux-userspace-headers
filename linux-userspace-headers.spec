@@ -16,10 +16,6 @@ URL:    	http://www.kernel.org/
 Source0: 	linux-userspace-headers-%{kver}.%{ever}.tar.xz
 Source1:	make_versionh.sh
 Source2:	create_asm_headers.sh
-# make headers_install_all has a bug which linux/{a.out.h,kvm.h,kvm_para.h}
-# headers are not included. While kernel isn't patched or we change the way we
-# create kernel headers tarball, patch it to include the missing headers
-Patch0:		linux-userspace-headers-kvm-a.out-missing-headers.patch
 Conflicts:	glibc-devel <= 6:2.7-2mdv2008.1
 Provides:	kernel-headers = 1:%{version}-%{release}
 Obsoletes:	kernel-headers < 1:2.6.31-0.rc5.2
@@ -33,7 +29,6 @@ This package is not suitable for building kernel modules.
 
 %prep
 %setup -q -n linux-userspace-headers-%{kver}.%{ever}
-%patch0 -p1
 %{expand:%(%__cat %{_sourcedir}/make_versionh.sh 2>/dev/null)}
 TARGET=%_target_cpu
 %{expand:%(%__cat %{_sourcedir}/create_asm_headers.sh 2>/dev/null)}
