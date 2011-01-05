@@ -1,11 +1,11 @@
 # kernel-headers are generated from mandriva kernel version %{kver}.%{ever}
-%define kver 2.6.36
-%define ever 2mnb2
+%define kver 2.6.37
+%define ever 1mnb2
 
 Summary:	Linux kernel header files for userspace
 Name:   	linux-userspace-headers
 Version:	%{kver}
-Release:	%manbo_mkrel 2
+Release:	%manbo_mkrel 1
 License:	GPL
 Group:  	System/Kernel and hardware
 URL:    	http://www.kernel.org/
