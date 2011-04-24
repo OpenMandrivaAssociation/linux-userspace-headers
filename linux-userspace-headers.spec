@@ -1,5 +1,5 @@
 # kernel-headers are generated from mandriva kernel version %{kver}.%{ever}
-%define kver 2.6.38.1
+%define kver 2.6.38.4
 %define ever 1mnb2
 
 Summary:	Linux kernel header files for userspace
