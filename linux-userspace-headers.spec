@@ -30,7 +30,11 @@ This package is not suitable for building kernel modules.
 %prep
 %setup -q -n linux-userspace-headers-%{kver}.%{ever}
 %{expand:%(%__cat %{_sourcedir}/make_versionh.sh 2>/dev/null)}
+%ifarch %arm
+TARGET=arm
+%else
 TARGET=%_target_cpu
+%endif
 %{expand:%(%__cat %{_sourcedir}/create_asm_headers.sh 2>/dev/null)}
 
 %install
