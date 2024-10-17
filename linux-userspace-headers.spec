@@ -8,7 +8,7 @@ Version:	%{kver}
 Release:	%manbo_mkrel 2
 License:	GPL
 Group:  	System/Kernel and hardware
-URL:    	http://www.kernel.org/
+URL:    	https://www.kernel.org/
 # kernel-headers tarball generated from mandriva kernel in svn with:
 # make INSTALL_HDR_PATH=<path> headers_install_all
 # find <path> -name ..install.cmd -exec rm -f {} \;
